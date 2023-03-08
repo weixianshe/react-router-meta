@@ -10,12 +10,12 @@
   "type": "module",
   "repository": "https://github.com/weixianshe/react-router-meta",
   "license": "MIT",
-  "main": "./lib/lazy-pictures.umd.js",
-  "module": "./lib/lazy-pictures.es.js",
+  "main": "./lib/comp-routes.umd.js",
+  "module": "./lib/comp-routes.es.js",
   "exports": {
     ".": {
-      "import": "./lib/lazy-pictures.es.js",
-      "require": "./lib/lazy-pictures.umd.js"
+      "import": "./lib/comp-routes.es.js",
+      "require": "./lib/comp-routes.umd.js"
     }
   },
   "files": [
@@ -23,7 +23,7 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc -p tsconfig.build.json && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
