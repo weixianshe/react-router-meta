@@ -1,8 +1,26 @@
 {
-  "name": "react-router-meta",
-  "private": true,
-  "version": "0.0.0",
+  "name": "react-router-dom-meta",
+  "version": "1.0.0",
+  "description": "Add meta to react-router-dom to implement permission authentication",
+  "keywords": [
+    "react",
+    "react-router"
+  ],
+  "homepage": "https://github.com/weixianshe/react-router-meta#README.md",
   "type": "module",
+  "repository": "https://github.com/weixianshe/react-router-meta",
+  "license": "MIT",
+  "main": "./lib/lazy-pictures.umd.js",
+  "module": "./lib/lazy-pictures.es.js",
+  "exports": {
+    ".": {
+      "import": "./lib/lazy-pictures.es.js",
+      "require": "./lib/lazy-pictures.umd.js"
+    }
+  },
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -14,6 +32,7 @@
     "react-router-dom": "6.3.0"
   },
   "devDependencies": {
+    "@types/node": "^18.14.6",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-react": "^3.1.0",
