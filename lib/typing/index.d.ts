@@ -7,13 +7,9 @@ export interface RouteProps<T> extends RouteObject {
     children?: RouteProps<T>[];
 }
 export interface PermissionProps<T> {
-    isLogin: boolean;
-    routes: RouteProps<T>[];
-    loginPath: string;
-    redirctPath: string;
-}
-export interface IPermission<T> {
-    routes: RouteProps<T>[];
-    isLogin: boolean;
+    isLogin?: boolean;
+    routes?: RouteProps<T>[];
+    loginPath?: string;
+    redirctPath?: string;
     callback?: () => {};
 }

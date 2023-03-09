@@ -20,4 +20,5 @@ export {
   Link,
 } from "react-router-dom";
 
+export type { RouteProps } from "./typing";
 export { Permissions };

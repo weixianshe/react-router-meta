@@ -1,14 +1,16 @@
 import React, { PropsWithChildren, useMemo } from "react";
 import { matchRoutes, Navigate, useLocation } from "react-router-dom";
 
-import type { IPermission, RouteProps } from "../typing";
+import type { RouteProps, PermissionProps } from "../typing";
 
 function Premisson<T>({
   children,
-  routes,
-  isLogin,
+  routes = [],
+  isLogin = false,
+  loginPath = "/login",
+  redirctPath = "/",
   callback,
-}: PropsWithChildren<IPermission<T>>) {
+}: PropsWithChildren<PermissionProps<T>>) {
   if (callback && typeof callback === "function") {
     callback();
   } else {
@@ -25,11 +27,13 @@ function Premisson<T>({
       });
     }, [mathchs]);
     if (isNeedLogin && !isLogin) {
-      return <Navigate to={"/"} state={{ form: location.pathname }} replace />;
+      return (
+        <Navigate to={loginPath} state={{ form: location.pathname }} replace />
+      );
     }
 
-    if (!isNeedLogin && isLogin && location.pathname === "/login") {
-      return <Navigate to={"/dashboard"} replace />;
+    if (!isNeedLogin && isLogin && location.pathname === loginPath) {
+      return <Navigate to={redirctPath} replace />;
     }
   }
 
