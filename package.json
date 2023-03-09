@@ -1,6 +1,6 @@
 {
   "name": "react-router-dom-meta",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Add meta to react-router-dom to implement permission authentication",
   "keywords": [
     "react",
