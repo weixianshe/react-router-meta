@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   build: {
     lib: {
-      entry: resolve(__dirname, "src/index.ts"), // 打包的入口文件
+      entry: resolve(__dirname, "packages/index.ts"), // 打包的入口文件
       name: "PermissionRoutes", // 包名 // formats: ['es', 'umd'], // 打包模式，默认是es和umd都打
       fileName: (format) => `comp-routes.${format}.js`,
     },
