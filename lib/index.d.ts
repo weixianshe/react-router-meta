@@ -1,19 +1,4 @@
-import { RouteObject } from "react-router-dom";
-export interface RouteProps<T> extends RouteObject {
-    meta?: {
-        auth?: boolean;
-        roles?: T[];
-    };
-    children?: RouteProps<T>[];
-}
-export interface PermissionProps<T> {
-    isLogin: boolean;
-    routes: RouteProps<T>[];
-    loginPath: string;
-    redirctPath: string;
-}
-export interface IPermission<T> {
-    routes: RouteProps<T>[];
-    isLogin: boolean;
-    callback?: () => {};
-}
+import Permissions from "./components";
+export { compRoutes } from "./utils";
+export { BrowserRouter, HashRouter, Outlet, useRoutes, Navigate, useNavigate, useParams, useLocation, matchPath, matchRoutes, useMatch, useSearchParams, useHref, useOutlet, NavLink, Link, } from "react-router-dom";
+export { Permissions };

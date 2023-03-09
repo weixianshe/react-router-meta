@@ -19,6 +19,6 @@
     "declarationDir": "lib",
     "noEmit": false
   },
-  "include": ["packages/typing"],
+  "include": ["packages"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

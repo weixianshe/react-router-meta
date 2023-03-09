@@ -2,10 +2,22 @@ import Permissions from "./components";
 
 export { compRoutes } from "./utils";
 export {
-  BrowserRouter as Router,
+  BrowserRouter,
+  HashRouter,
   Outlet,
   useRoutes,
+  Navigate,
+  useNavigate,
+  useParams,
+  useLocation,
+  matchPath,
+  matchRoutes,
+  useMatch,
+  useSearchParams,
+  useHref,
+  useOutlet,
   NavLink,
   Link,
 } from "react-router-dom";
+
 export { Permissions };
