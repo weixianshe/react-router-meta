@@ -1,6 +1,6 @@
 import Permissions from "./components";
 
-export { compRoutes } from "./utils";
+export { compRoutes, addRoute, getRoutes } from "./utils";
 export {
   BrowserRouter,
   HashRouter,

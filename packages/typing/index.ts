@@ -1,10 +1,14 @@
 import { RouteObject } from "react-router-dom";
 
-export interface RouteProps<T> extends RouteObject {
-  meta?: {
-    auth?: boolean; //登录
-    roles?: T[]; //权限
-  };
+export interface RouteMeta<T> {
+  auth?: boolean; //登录
+  roles?: T[]; //权限
+  title?: string; // 标题
+}
+
+export interface RouteProps<T extends any> extends RouteObject {
+  meta?: RouteMeta<T>;
+  name?: string;
   children?: RouteProps<T>[];
 }
 

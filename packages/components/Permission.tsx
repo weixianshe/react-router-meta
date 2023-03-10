@@ -2,6 +2,7 @@ import React, { PropsWithChildren, useMemo } from "react";
 import { matchRoutes, Navigate, useLocation } from "react-router-dom";
 
 import type { RouteProps, PermissionProps } from "../typing";
+import { RoutesContext } from "../utils/store";
 
 function Premisson<T>({
   children,
@@ -37,7 +38,9 @@ function Premisson<T>({
     }
   }
 
-  return <>{children}</>;
+  return (
+    <RoutesContext.Provider value={routes}>{children}</RoutesContext.Provider>
+  );
 }
 
 export default Premisson;

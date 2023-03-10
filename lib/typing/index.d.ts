@@ -1,9 +1,12 @@
 import { RouteObject } from "react-router-dom";
-export interface RouteProps<T> extends RouteObject {
-    meta?: {
-        auth?: boolean;
-        roles?: T[];
-    };
+export interface RouteMeta<T> {
+    auth?: boolean;
+    roles?: T[];
+    title?: string;
+}
+export interface RouteProps<T extends any> extends RouteObject {
+    meta?: RouteMeta<T>;
+    name?: string;
     children?: RouteProps<T>[];
 }
 export interface PermissionProps<T> {
