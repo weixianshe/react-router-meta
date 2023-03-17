@@ -1,8 +1,14 @@
-import { createContext, useContext } from "react";
 import { RouteProps } from "../typing";
 
-export const RoutesContext = createContext<RouteProps<any>[] | null>(null);
+interface Action {
+  type: string;
+  payload: any;
+}
 
-export function getValue() {
-  return useContext(RoutesContext);
+export interface State {
+  routes: RouteProps<any>[];
+}
+
+export interface IState extends State {
+  dispatch: React.Dispatch<any> | undefined;
 }

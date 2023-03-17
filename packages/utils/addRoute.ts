@@ -1,22 +1,19 @@
+import { useContext } from "react";
+import { RoutesContext } from "../components/Permission";
 import { RouteProps } from "../typing";
-import { getValue } from "./store";
 
 export function addRoute<T>(parentName: string, route: RouteProps<T>): void;
 export function addRoute<T>(route: RouteProps<T>): void;
 export function addRoute<T>(
-  parentNam: string | RouteProps<T>,
+  parentName: string | RouteProps<T>,
   route?: RouteProps<T>
 ): void {
-  const routes = getValue() ?? [];
+  const routes = useContext(RoutesContext) as RouteProps<T>[];
   const len = arguments.length;
   if (len === 0 || len > 2) return;
-  const arg0 = arguments[0];
-  if (typeof parentNam === "string") {
-    if (typeof arg0 !== "string") {
-      return console.error("当添加嵌套路由时,name必须为字符串");
-    }
+  if (typeof parentName === "string") {
     const res = routes.find((item) => {
-      return item.name === arg0;
+      return item.name === parentName;
     });
 
     if (!res) {
@@ -27,11 +24,11 @@ export function addRoute<T>(
     }
     res.children.push(route!);
   } else {
-    const { name } = parentNam;
+    const { name } = parentName;
     const res = routes.findIndex((route) => route.name === name);
     if (res === 1) {
       routes.splice(res, 1);
     }
-    routes.push(arg0);
+    routes.push(parentName);
   }
 }

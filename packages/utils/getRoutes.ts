@@ -1,11 +1,14 @@
+import { useContext, useEffect } from "react";
+import { RoutesContext } from "../components/Permission";
 import { RouteProps } from "../typing";
-import { getValue } from "./store";
 
 export const getRoutes = (flat?: boolean) => {
-  let routes = getValue() ?? [];
+  const routes = useContext(RoutesContext);
+  if (!routes || !routes.length) return [];
+  // const { routes, dispatch } = getValue() as IState;
   let allRoutes: RouteProps<string>[] = [];
   deepRoutes(routes!, allRoutes, flat);
-  console.log(routes);
+  return routes;
 };
 
 function deepRoutes(

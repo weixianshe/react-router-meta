@@ -1,1 +1,1 @@
-export declare const getRoutes: (flat?: boolean) => void;
+export declare const getRoutes: (flat?: boolean) => any;
